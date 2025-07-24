@@ -1,0 +1,16 @@
+backend:
+  name: git-gateway
+  branch: main # Ganti kalau cabang utama kamu bukan 'main'
+
+media_folder: static/img # tempat file gambar disimpan di repo
+public_folder: /img # URL path untuk gambar
+
+collections:
+  - name: "docs"
+    label: "Documentation"
+    folder: "docs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
