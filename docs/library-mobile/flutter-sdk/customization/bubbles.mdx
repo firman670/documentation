@@ -1,0 +1,68 @@
+---
+id: bubbles
+title: Bubble & Message Styling
+sidebar_position: 2
+---
+
+# 💬 Bubble & Message Styling
+
+`lenna_chat` gives you full control over the visual style of your message bubbles — both for user messages and chatbot replies.
+
+You can customize colors, background, text field styling, and more.
+
+---
+
+## 🎨 1. Customize `bubbleLeftColor`
+
+This controls the background color of **bot/chatbot messages**.
+
+```dart title="Example"
+LennaChat(
+  bubbleLeftColor: Color(0xFFE0E0E0), // light gray
+)
+
+```
+
+## 💬 2. Customize `bubbleRightColor`
+
+This controls the background color of user messages.
+
+```dart title="Example"
+LennaChat(
+  bubbleRightColor: Color(0xFF0030C2), // blue
+)
+
+```
+
+## ✏️ 3. Customize `textFieldColor`
+
+The background color of the text input area can also be customized:
+
+```dart title="Example"
+LennaChat(
+  textFieldColor: Color(0xFFF6F6F6),
+)
+
+```
+
+## 📤 4. Customize `sendButtonColor`
+
+This controls the color of the send button icon.
+
+```dart title="Example"
+LennaChat(
+  sendButtonColor: Color(0xFF0030C2),
+)
+
+```
+
+## 📱 5.Customize `Chat Background`
+
+The chat screen background (outside the bubbles) can be customized via backgroundColor:
+
+```dart title="Example"
+LennaChat(
+  backgroundColor: Color(0xFFF5F5F5),
+)
+
+```

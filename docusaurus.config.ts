@@ -5,9 +5,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  favicon: "img/favicon.ico",
+  title: "Lenna Doc",
+  tagline: "Lenna Documentation",
+  favicon: "https://platform.lenna.ai/assets/logo-icon-84970a46.svg",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -75,14 +75,14 @@ const config: Config = {
       title: "Lenna Ai",
       logo: {
         alt: "Lenna Ai Logo",
-        src: "img/logo.svg",
+        src: "https://platform.lenna.ai/assets/logo-icon-84970a46.svg",
       },
       items: [
         {
           type: "docSidebar",
-          sidebarId: "tutorialSidebar",
+          sidebarId: "documentationSideBar",
           position: "left",
-          label: "Tutorial",
+          label: "Documentation",
         },
         { to: "/blog", label: "Blog", position: "left" },
         { to: "/upload.md", label: "Upload-folder", position: "left" },
@@ -100,7 +100,7 @@ const config: Config = {
           title: "Docs",
           items: [
             {
-              label: "Tutorial",
+              label: "Documentation",
               to: "/docs/intro",
             },
           ],
@@ -136,7 +136,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Lenna.ai.`,
     },
     prism: {
       theme: prismThemes.github,
