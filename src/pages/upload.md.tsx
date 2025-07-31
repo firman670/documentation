@@ -13,40 +13,60 @@ export default function UploadPage() {
   const [activePath, setActivePath] = useState(null);
   const [expandedPaths, setExpandedPaths] = useState([]);
 
+  const rawData = {
+    "library-mobile": {
+      name: "library-mobile",
+      path: "library-mobile",
+      children: {
+        "flutter-sdk": {
+          name: "flutter-sdk",
+          path: "library-mobile/flutter-sdk",
+          children: {
+            customization: {
+              name: "customization",
+              path: "library-mobile/flutter-sdk/customization",
+              children: [],
+            },
+          },
+        },
+        "react-native": {
+          name: "react-native",
+          path: "library-mobile/react-native",
+          children: [],
+        },
+      },
+    },
+    "tutorial-extras": {
+      name: "tutorial-extras",
+      path: "tutorial-extras",
+      children: {
+        img: {
+          name: "img",
+          path: "tutorial-extras/img",
+          children: [],
+        },
+      },
+    },
+  };
+
+  const convertToFolderArray = (obj) => {
+    const result = [];
+
+    for (const key in obj) {
+      const item = obj[key];
+      const children = item.children || {};
+
+      result.push({
+        ...item,
+        children: convertToFolderArray(children),
+      });
+    }
+
+    return result;
+  };
+
   const folderStructure = {
-    name: "root",
-    children: [
-      {
-        name: "mobile-sdk",
-        children: [
-          {
-            name: "Library Flutter",
-            children: [
-              { name: "Getting Started.md" },
-              { name: "Installation.md" },
-              {
-                name: "Customization",
-                children: [
-                  { name: "Header Customization.md" },
-                  { name: "Bubble & Message Styling.md" },
-                ],
-              },
-            ],
-          },
-          {
-            name: "Library React Native",
-            children: [{ name: "Coming Soon.md" }],
-          },
-        ],
-      },
-      {
-        name: "front-end",
-        children: [
-          { name: "components", children: [{ name: "ChatWidget.js" }] },
-          { name: "styles", children: [{ name: "theme.css" }] },
-        ],
-      },
-    ],
+    children: convertToFolderArray(rawData),
   };
 
   const toggleExpand = (path) => {
@@ -271,8 +291,8 @@ export default function UploadPage() {
                 <div className="folderTree">
                   {folderStructure.children.map((node, idx) => (
                     <FolderTree
+                      key={idx}
                       node={node}
-                      path="root"
                       activePath={activePath}
                       setActivePath={setActivePath}
                       expandedPaths={expandedPaths}

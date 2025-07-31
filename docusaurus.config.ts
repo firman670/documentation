@@ -63,7 +63,7 @@ const config: Config = {
           onUntruncatedBlogPosts: "warn",
         },
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: require.resolve("./src/css/custom.css"),
         },
       } satisfies Preset.Options,
     ],
@@ -94,7 +94,7 @@ const config: Config = {
       ],
     },
     footer: {
-      style: "dark",
+      // style: "dark",
       links: [
         {
           title: "Docs",
@@ -106,14 +106,14 @@ const config: Config = {
           ],
         },
         {
-          title: "Community",
+          title: "Library",
           items: [
             {
-              label: "Stack Overflow",
+              label: "Flutter",
               href: "https://stackoverflow.com/questions/tagged/docusaurus",
             },
             {
-              label: "Discord",
+              label: "React Native",
               href: "https://discordapp.com/invite/docusaurus",
             },
             {
@@ -136,6 +136,12 @@ const config: Config = {
           ],
         },
       ],
+      logo: {
+        alt: "Lenna Ai Logo",
+        src: "https://platform.lenna.ai/assets/logo-icon-84970a46.svg",
+        width: 90,
+        height: 45,
+      },
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Lenna.ai.`,
     },
     prism: {
