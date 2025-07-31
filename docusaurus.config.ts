@@ -84,8 +84,8 @@ const config: Config = {
           position: "left",
           label: "Documentation",
         },
-        { to: "/blog", label: "Blog", position: "left" },
-        { to: "/upload.md", label: "Upload-folder", position: "left" },
+        // { to: "/blog", label: "Blog", position: "left" },
+        { to: "/upload.md", label: "Upload Folder", position: "left" },
         {
           href: "https://github.com/facebook/docusaurus",
           label: "GitHub",

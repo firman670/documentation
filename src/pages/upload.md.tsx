@@ -195,9 +195,7 @@ export default function UploadPage() {
                 className="fileInput"
                 onChange={handleFileChange}
               />
-              <div className="supportedFormats">
-                Supported: .pdf, .docx, .png
-              </div>
+              <div className="supportedFormats">Supported: .md & .mdx</div>
             </motion.div>
           )}
 

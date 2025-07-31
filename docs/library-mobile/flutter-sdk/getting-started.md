@@ -14,11 +14,11 @@ Whether you're building a customer support system, virtual assistant, or AI-driv
 
 `lenna_chat` is a plug-and-play Flutter package designed for developers who want to:
 
-- 🚀 Quickly integrate a **chat UI** into their app.
-- 🔌 Connect to their **own backend** via WebSocket or HTTP webhook.
-- 🖼️ Support **rich message types** like images, carousels, and files.
+- 🚀 Quickly integrate a **chat UI** into your app.
+- 🔌 Connect to **Chatbot** via WebSocket or HTTP webhook.
+- 🖼️ Support **rich message types** like images, carousels, files, and etc.
 - 📦 Use **Firebase Cloud Messaging (FCM)** or **local notifications**.
-- 🎨 Customize the appearance to match their brand.
+- 🎨 Customize the appearance to match your brand.
 
 From handling message history and typing indicators, to full support for image/file previews and real-time updates, `lenna_chat` helps you build fast without reinventing the wheel.
 
