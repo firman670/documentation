@@ -4,7 +4,6 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
@@ -17,7 +16,6 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
   --ifm-color-primary: #25c2a0;
   --ifm-color-primary-dark: #21af90;
@@ -101,6 +99,7 @@
   flex-wrap: wrap;
   padding-top: 0.5rem;
   border-top: 1px solid var(--ifm-toc-border-color);
+  font-size: 12px;
 }
 
 .footer__logo img {
@@ -133,7 +132,6 @@ html[data-theme="light"] .footer {
   height: 100px;
 }
 
-/* Perbaiki wrapping container pada halaman generated index */
 .generated-index-page .container {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -141,15 +139,26 @@ html[data-theme="light"] .footer {
   overflow-x: hidden;
 }
 
-/* Grid box agar auto stack di mobile */
 .generated-index-page .cards__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
 }
 
-/* Pastikan setiap card tidak keluar dari container */
 .generated-index-page .card {
   max-width: 100%;
   word-break: break-word;
+}
+
+.footer__logo {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-start !important;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .footer__logo {
+    margin-bottom: 10px;
+  }
 }

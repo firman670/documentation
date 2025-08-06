@@ -24,7 +24,9 @@ export default function FooterLayout(props) {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  marginBottom: "15px",
+                  // marginBottom: "15px",
+                  // width: "40px",
+                  // height: "40px",
                 }}
               >
                 <img

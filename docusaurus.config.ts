@@ -5,8 +5,8 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "Lenna Doc",
-  tagline: "Lenna Documentation",
+  title: "Lenna Documentation",
+  tagline: "Build Intelligent Conversations with Lenna",
   favicon: "https://platform.lenna.ai/assets/logo-icon-84970a46.svg",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
