@@ -1,6 +1,9 @@
 {
+  "customProps": {
+    "title": "Tutorial - Extras"
+  },
   "label": "Tutorial - Extras",
-  "position": 3,
+  "position": 2,
   "link": {
     "type": "generated-index"
   }

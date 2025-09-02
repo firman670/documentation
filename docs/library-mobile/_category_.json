@@ -1,4 +1,7 @@
 {
+  "customProps": {
+    "title": "Mobile SDK"
+  },
   "label": "Library Mobile SDK",
   "position": 1,
   "link": {

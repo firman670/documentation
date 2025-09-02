@@ -19,10 +19,10 @@ function DocSidebarItems({ items, ...props }: Props): ReactNode {
 
         return (
           <React.Fragment key={index}>
-            {isRootCategory && (
+            {isRootCategory && item.customProps?.title && (
               <p
-                className={`text-sm font-semibold tracking-wide transition-colors pl-3 mb-0 
-                   text-[#b0b0b0] dark:hover:text-[#b0b0b0]
+                className={`text-sm font-bold font-mono tracking-wide transition-colors pl-3 mb-0 
+                   text-[#333] dark:text-[#f6f6f6]
               `}
                 // style={{
                 //   color: "#b0b0b0",
@@ -33,7 +33,7 @@ function DocSidebarItems({ items, ...props }: Props): ReactNode {
                 //   textTransform: "uppercase",
                 // }}
               >
-                {item.label}
+                {item.customProps.title as string}
               </p>
             )}
             <DocSidebarItem item={item} index={index} {...props} />

@@ -46,6 +46,32 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+          sidebarItemsGenerator: async function ({
+            defaultSidebarItemsGenerator,
+            ...args
+          }) {
+            const sidebarItems = await defaultSidebarItemsGenerator(args);
+
+            function injectCustomProps(items) {
+              return items.map((item) => {
+                if (item.type === "doc") {
+                  const docMetadata = args.docs.find((d) => d.id === item.id);
+                  if (docMetadata?.frontMatter?.icon) {
+                    item.customProps = {
+                      ...item.customProps,
+                      icon: docMetadata.frontMatter.icon,
+                    };
+                  }
+                }
+                if ("items" in item && Array.isArray(item.items)) {
+                  item.items = injectCustomProps(item.items);
+                }
+                return item;
+              });
+            }
+
+            return injectCustomProps(sidebarItems);
+          },
         },
         blog: {
           showReadingTime: true,
