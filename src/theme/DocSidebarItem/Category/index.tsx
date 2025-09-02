@@ -163,7 +163,6 @@ export default function DocSidebarItemCategory({
         "menu__list-item ",
         {
           "menu__list-item--collapsed": collapsed,
-          "pl-2": level === 0,
         },
         className
       )}

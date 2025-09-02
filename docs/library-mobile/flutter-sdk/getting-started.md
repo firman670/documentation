@@ -3,7 +3,6 @@ id: getting-started
 title: Getting Started
 sidebar_position: 1
 description: "Welcome to lenna Chat"
-icon: "🚀"
 ---
 
 # Getting Started
