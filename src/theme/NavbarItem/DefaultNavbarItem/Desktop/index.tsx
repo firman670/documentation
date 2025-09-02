@@ -8,6 +8,7 @@ export default function DefaultNavbarItemDesktop({
   isDropdownItem = false,
   ...props
 }: Props): ReactNode {
+  // console.log(props);
   const element = (
     <NavbarNavLink
       className={clsx(

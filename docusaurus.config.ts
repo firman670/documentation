@@ -81,11 +81,11 @@ const config: Config = {
         {
           type: "docSidebar",
           sidebarId: "documentationSideBar",
-          position: "left",
+          position: "right",
           label: "Documentation",
         },
         // { to: "/blog", label: "Blog", position: "left" },
-        { to: "/upload.md", label: "Upload Folder", position: "left" },
+        { to: "/upload.md", label: "Upload Folder", position: "right" },
         {
           href: "https://github.com/facebook/docusaurus",
           label: "GitHub",

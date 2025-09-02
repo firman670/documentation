@@ -10,7 +10,7 @@ import type { Props } from "@theme/DocSidebarItems";
 function DocSidebarItems({ items, ...props }: Props): ReactNode {
   const visibleItems = useVisibleSidebarItems(items, props.activePath);
 
-  console.log(props);
+  // console.log(props);
 
   return (
     <DocSidebarItemsExpandedStateProvider>
@@ -21,14 +21,17 @@ function DocSidebarItems({ items, ...props }: Props): ReactNode {
           <React.Fragment key={index}>
             {isRootCategory && (
               <p
-                style={{
-                  color: "#b0b0b0",
-                  fontSize: 14,
-                  fontWeight: 600,
-                  marginBottom: 0,
-                  paddingLeft: 12,
-                  textTransform: "uppercase",
-                }}
+                className={`text-sm font-semibold tracking-wide transition-colors pl-3 mb-0 
+                   text-[#b0b0b0] dark:hover:text-[#b0b0b0]
+              `}
+                // style={{
+                //   color: "#b0b0b0",
+                //   fontSize: 14,
+                //   fontWeight: 600,
+                //   marginBottom: 0,
+                //   paddingLeft: 12,
+                //   textTransform: "uppercase",
+                // }}
               >
                 {item.label}
               </p>

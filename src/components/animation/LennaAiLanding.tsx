@@ -31,7 +31,6 @@ function useSpherePoints(count = 2000, radius = 6) {
   return useMemo(() => {
     const positions = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      // Fibonacci sphere for even distribution
       const phi = Math.acos(1 - (2 * (i + 0.5)) / count);
       const theta = Math.PI * (1 + Math.sqrt(5)) * (i + 0.5);
       const r = radius * (0.7 + 0.3 * Math.random());
@@ -43,7 +42,7 @@ function useSpherePoints(count = 2000, radius = 6) {
   }, [count, radius]);
 }
 
-// -------- Particles (GPU-friendly Points)
+// -------- Particles
 const Particles: React.FC<{ count?: number; isDark?: boolean }> = ({
   count = 2200,
   isDark = true,
@@ -59,10 +58,10 @@ const Particles: React.FC<{ count?: number; isDark?: boolean }> = ({
       uHover: { value: 0 },
       uColorA: {
         value: isDark ? new THREE.Color("#60a5fa") : new THREE.Color("#3b82f6"),
-      }, // blue-400 (dark) vs blue-500 (light)
+      },
       uColorB: {
         value: isDark ? new THREE.Color("#a78bfa") : new THREE.Color("#6366f1"),
-      }, // violet-400 (dark) vs indigo-500 (light)
+      },
     }),
     [isDark]
   );
@@ -124,7 +123,7 @@ const Particles: React.FC<{ count?: number; isDark?: boolean }> = ({
   );
 };
 
-// -------- Network Orbs (instanced meshes with soft motion)
+// -------- Network Orbs
 const Orbs: React.FC<{ count?: number; isDark?: boolean }> = ({
   count = 200,
   isDark = true,
@@ -238,12 +237,12 @@ const Scene: React.FC = () => {
     () => ({
       radius: 80,
       depth: 40,
-      count: isDark ? 1200 : 400, // Fewer stars in light mode
-      factor: isDark ? 4 : 1.5,
+      count: isDark ? 1200 : 1000,
+      factor: isDark ? 4 : 4,
       fade: true,
       speed: 0.6,
-      saturation: isDark ? 0 : 0.3,
-      color: isDark ? "#ffffff" : "#d1d5db", // Lighter gray for light mode
+      saturation: isDark ? 0 : 0,
+      color: isDark ? "#ffffff" : "#C44B97",
     }),
     [isDark]
   );
@@ -262,7 +261,6 @@ const Scene: React.FC = () => {
 
       <LennaLogo3D isDark={isDark} />
 
-      {/* GroundGlow dengan tema */}
       <mesh rotation-x={-Math.PI / 2} position={[0, -1.2, 0]}>
         <circleGeometry args={[6, 64]} />
         <meshBasicMaterial
@@ -297,12 +295,15 @@ const Scene: React.FC = () => {
 
       <EffectComposer>
         <SMAA />
-        <Bloom
-          mipmapBlur
-          intensity={isDark ? 0.8 : 0.3} // Reduced bloom in light mode
-          luminanceThreshold={0.1}
-          radius={0.9}
-        />
+        {isDark ? null : (
+          <Bloom
+            mipmapBlur
+            intensity={isDark ? 0.8 : 0.3}
+            luminanceThreshold={0.1}
+            radius={0.9}
+          />
+        )}
+
         <Vignette eskil offset={0.2} darkness={isDark ? 0.6 : 0.1} />
       </EffectComposer>
 
@@ -365,7 +366,7 @@ export default function LennaAiLanding() {
       className={`pt-10 min-h-screen w-full relative overflow-hidden ${bgClass}`}
     >
       {/* Top Nav */}
-      <header className="absolute inset-x-0 top-0 z-10">
+      {/* <header className="absolute inset-x-0 top-0 z-10">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div
@@ -394,7 +395,7 @@ export default function LennaAiLanding() {
             </a>
           </nav>
         </div>
-      </header>
+      </header> */}
 
       {/* 3D Canvas */}
       <div className="relative h-[68vh] md:h-[78vh] w-full">
