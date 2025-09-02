@@ -1,0 +1,14 @@
+# Docker ignore
+
+# Git
+.git
+
+# node_modules
+node_modules
+
+# Docusaurus build artifacts
+.docusaurus
+build
+
+# Local development files
+.env.local
