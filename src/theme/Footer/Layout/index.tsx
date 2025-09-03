@@ -9,50 +9,23 @@ export default function FooterLayout(props) {
   console.log(logo);
 
   return (
-    <footer
-      className={clsx(ThemeClassNames.layout.footer.container, "footer", {
-        "footer--dark": style === "dark",
-      })}
-    >
-      <div className="container container-fluid">
-        {links}
-        {(logo || copyright) && (
-          <div className="footer__bottom">
-            {logo && (
-              <div
-                className="footer__logo"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  // marginBottom: "15px",
-                  // width: "40px",
-                  // height: "40px",
-                }}
-              >
-                <img
-                  src={
-                    logo.src ||
-                    "https://platform.lenna.ai/assets/logo-icon-84970a46.svg"
-                  }
-                  alt={logo.alt || "Lenna Ai Logo"}
-                  width={logo.width || 80}
-                  height={logo.height || 40}
-                />
-                <span
-                  style={{
-                    marginLeft: "8px",
-                    fontWeight: 600,
-                    fontSize: 12,
-                  }}
-                >
-                  {logo.title || "Lenna.ai"}
-                </span>
-              </div>
-            )}
-            {copyright}
-          </div>
-        )}
-      </div>
+    // <footer
+    //   className={clsx(ThemeClassNames.layout.footer.container, "footer", {
+    //     "footer--dark": style === "dark",
+    //   })}
+    // >
+    <footer className="border-t border-white/10 py-6 text-center text-xs opacity-70">
+      {/* <img
+        src={
+          logo.src || "https://platform.lenna.ai/assets/logo-icon-84970a46.svg"
+        }
+        alt={logo.alt || "Lenna Ai Logo"}
+        width={logo.width || 20}
+        height={logo.height || 20}
+      />{" "} */}
+      {new Date().getFullYear()} {logo.title || "Lenna.ai"} — All rights
+      reserved.
     </footer>
+    // </footer>
   );
 }
