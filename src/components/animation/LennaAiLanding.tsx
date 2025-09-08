@@ -44,7 +44,7 @@ function useSpherePoints(count = 2000, radius = 6) {
 
 // -------- Particles
 const Particles: React.FC<{ count?: number; isDark?: boolean }> = ({
-  count = 2200,
+  count = 900,
   isDark = true,
 }) => {
   const positions = useSpherePoints(count, 7);
