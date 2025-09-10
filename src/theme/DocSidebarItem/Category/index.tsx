@@ -174,7 +174,9 @@ export default function DocSidebarItemCategory({
       >
         <Link
           className={clsx(
-            "menu__link !text-sm  !text-[#333] dark:!text-[#f6f6f6]",
+            `menu__link !text-sm  !text-gray-500 dark:!text-gray-400 ${
+              level !== 1 ? "pl-5" : "pl-3"
+            }`,
             {
               "menu__link--sublist": collapsible,
               "menu__link--sublist-caret": !href && collapsible,

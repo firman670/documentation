@@ -22,25 +22,24 @@ export default function DocSidebarItemLink({
   const isActive = isActiveSidebarItem(item, activePath);
   const isInternalLink = isInternalUrl(href);
 
-  // console.log("props", item.customProps);
+  // console.log("props", level);
 
   return (
     <li
       className={clsx(
         ThemeClassNames.docs.docSidebarItemLink,
         ThemeClassNames.docs.docSidebarItemLinkLevel(level),
-        "menu__list-item pl-2 !my-0",
+        `menu__list-item !my-0 ${level === 0 || level === 1 ? "pl-0" : "pl-5"}`,
         className
       )}
       key={label}
     >
       <Link
         className={clsx(
-          "menu__link !text-sm !text-gray-400 dark:!text-gray-400",
+          `menu__link !text-sm  text-gray-500 dark:text-gray-400`,
           !isInternalLink && styles.menuExternalLink,
           {
             "menu__link--active": isActive,
-            "!text-sm !text-gray-400": level > 1,
           }
         )}
         autoAddBaseUrl={autoAddBaseUrl}
