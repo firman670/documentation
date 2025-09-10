@@ -21,7 +21,7 @@ function DocSidebarItems({ items, ...props }: Props): ReactNode {
           <React.Fragment key={index}>
             {isRootCategory && item.customProps?.title && (
               <p
-                className={`text-sm font-bold font-mono tracking-wide transition-colors pl-3 my-2 
+                className={`text-sm font-bold font-mono tracking-wide transition-colors pl-3 mt-3  mb-0
                    text-[#333] dark:text-[#f6f6f6]
               `}
                 // style={{
