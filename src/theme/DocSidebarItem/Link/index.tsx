@@ -22,14 +22,14 @@ export default function DocSidebarItemLink({
   const isActive = isActiveSidebarItem(item, activePath);
   const isInternalLink = isInternalUrl(href);
 
-  console.log("props", item.customProps);
+  // console.log("props", item.customProps);
 
   return (
     <li
       className={clsx(
         ThemeClassNames.docs.docSidebarItemLink,
         ThemeClassNames.docs.docSidebarItemLinkLevel(level),
-        "menu__list-item pl-2",
+        "menu__list-item pl-2 !my-0",
         className
       )}
       key={label}
