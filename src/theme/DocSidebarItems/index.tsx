@@ -21,21 +21,16 @@ function DocSidebarItems({ items, ...props }: Props): ReactNode {
           <React.Fragment key={index}>
             {isRootCategory && item.customProps?.title && (
               <p
-                className={`text-sm font-bold font-mono tracking-wide transition-colors pl-3 mt-3  mb-0
-                   text-[#333] dark:text-[#f6f6f6]
-              `}
-                // style={{
-                //   color: "#b0b0b0",
-                //   fontSize: 14,
-                //   fontWeight: 600,
-                //   marginBottom: 0,
-                //   paddingLeft: 12,
-                //   textTransform: "uppercase",
-                // }}
+                className={`
+      text-sm font-bold font-sans tracking-wide transition-colors pl-3 mb-0
+      text-[#333] dark:text-[#f6f6f6]
+      ${item.customProps?.title !== " " ? "mt-6" : "mt-0"}
+    `}
               >
                 {item.customProps.title as string}
               </p>
             )}
+
             <DocSidebarItem item={item} index={index} {...props} />
           </React.Fragment>
         );

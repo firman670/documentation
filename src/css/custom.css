@@ -35,6 +35,97 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+[class*="generatedIndexPage_"] {
+  min-width: 100%;
+}
+
+/* SECTION MAIN DOCS VIEW */
+
+@media (min-width: 1024px) {
+  .container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 80vh !important;
+    padding: 2rem !important;
+  }
+
+  .margin-top--lg {
+    min-height: 50vh !important;
+    min-width: 719px !important;
+  }
+
+  .card {
+    min-width: 327.5px !important;
+  }
+
+  .col {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-height: 80vh !important;
+  }
+
+  .row {
+    width: 100% !important;
+  }
+
+  .margin-top--lg {
+    min-height: auto !important;
+    min-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .generatedIndexPage_jE6W {
+    max-width: 100% !important;
+  }
+
+  .title__lw4 {
+    font-size: 42px;
+  }
+
+  /* .card {
+    max-width: 90% !important;
+    box-sizing: border-box !important;
+  }
+
+  .theme-doc-breadcrumbs {
+    max-width: 95% !important;
+  }
+
+  .title__lw4 {
+    max-width: 95% !important;
+  }
+
+  .row {
+    max-width: 95% !important;
+  } */
+
+  .pagination-nav {
+    margin-top: 2rem !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .pagination-nav__link {
+    width: 100% !important;
+    max-width: 300px !important;
+    text-align: center !important;
+  }
+}
+/* ----------------------- */
+
 .selectPathButton {
   margin-top: 6px;
   background-color: var(--ifm-color-emphasis-100);
@@ -74,6 +165,10 @@
   color: #2a68ee !important;
   background-color: rgba(42, 104, 238, 0.1);
   border-radius: 9999px;
+}
+
+.theme-doc-markdown {
+  min-width: 100% !important;
 }
 
 .confirmPathButton:hover {
@@ -131,7 +226,7 @@
 .footer__logo {
   display: flex !important;
   align-items: center;
-  justify-content: flex-start !important; /* pastikan kiri */
+  justify-content: flex-start !important;
   margin-top: 1rem;
 }
 
@@ -143,7 +238,7 @@
 
 html[data-theme="dark"] .footer {
   background-color: #1f2937;
-  color: #f3f4f6; /* gray-100 */
+  color: #f3f4f6;
   border-top: 1px solid #374151;
 }
 
