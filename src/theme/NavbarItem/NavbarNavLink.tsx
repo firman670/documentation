@@ -44,19 +44,6 @@ export default function NavbarNavLink({
 
   const isDarkTheme = theme === "dark";
 
-  const navLinkClass = `px-3 py-2 rounded-md font-medium transition-colors text-sm ${
-    isDarkTheme
-      ? "text-gray-300 hover:text-white hover:bg-gray-800"
-      : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
-  }`;
-
-  const buttonClass = `px-4 py-2 rounded-md font-medium transition-colors text-sm ${
-    isDarkTheme
-      ? "bg-gradient-to-tr from-blue-500 to-cyan-400 text-white shadow-cyan-900/40 hover:from-blue-600 hover:to-cyan-500"
-      : "bg-gradient-to-tr from-blue-500 to-indigo-400 text-white shadow-blue-500/40 hover:from-blue-600 hover:to-indigo-500"
-  }`;
-
-  // Link content is set through html XOR label
   const linkContentProps = html
     ? { dangerouslySetInnerHTML: { __html: html } }
     : {
@@ -66,7 +53,7 @@ export default function NavbarNavLink({
               className={`text-sm font-semibold tracking-wide transition-colors ${
                 isExternalLink
                   ? "inline-flex items-center gap-1"
-                  : "hover:text-blue-500 dark:hover:text-cyan-400"
+                  : "hover:text-[#2A68EE] dark:hover:text-[#2A68EE]"
               }`}
             >
               {label}

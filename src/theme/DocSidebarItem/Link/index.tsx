@@ -29,7 +29,7 @@ export default function DocSidebarItemLink({
       className={clsx(
         ThemeClassNames.docs.docSidebarItemLink,
         ThemeClassNames.docs.docSidebarItemLinkLevel(level),
-        `menu__list-item !my-0 ${level === 0 || level === 1 ? "pl-0" : "pl-5"}`,
+        `menu__list-item !my-0 ${level === 0 || level === 1 ? "pl-0" : "pl-0"}`,
         className
       )}
       key={label}
