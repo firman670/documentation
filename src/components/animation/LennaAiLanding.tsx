@@ -351,7 +351,7 @@ export default function LennaAiLanding() {
   // background & text classes based on theme
   const bgClass = isDark
     ? "bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 text-white"
-    : "bg-purple-200";
+    : "bg-blue-400";
 
   const navLinkClass = isDark
     ? "hover:opacity-100 transition-opacity"
