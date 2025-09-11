@@ -181,6 +181,7 @@ export default function DocSidebarItemCategory({
               "menu__link--sublist": collapsible,
               "menu__link--sublist-caret": !href && collapsible,
               "menu__link--active": isActive,
+              "!text-[#2a68ee] dark:!text-[#2a68ee] font-medium": isCurrentPage,
             }
           )}
           onClick={

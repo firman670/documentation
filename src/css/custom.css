@@ -39,6 +39,32 @@
   min-width: 100%;
 }
 
+.menu__link--active {
+  color: #2a68ee !important;
+  font-weight: 600 !important;
+}
+
+.theme-doc-markdown a {
+  color: #2a68ee;
+  text-decoration: none;
+}
+
+.table-of-contents__link--active {
+  color: #2a68ee !important;
+  font-weight: 600 !important;
+}
+
+code {
+  color: #2a68ee !important;
+  font-weight: 600 !important;
+  background-color: rgba(42, 104, 238, 0.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+.theme-edit-this-page {
+  color: #2a68ee !important;
+}
+
 /* SECTION MAIN DOCS VIEW */
 
 @media (min-width: 1024px) {
