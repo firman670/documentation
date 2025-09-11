@@ -3,7 +3,7 @@
     "title": "Mobile SDK"
   },
   "label": "Library Mobile SDK",
-  "position": 1,
+  "position": 9999,
   "link": {
     "type": "generated-index",
     "description": "Documentation Library Mobile SDK"

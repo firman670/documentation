@@ -1,0 +1,8 @@
+{
+  "label": "Settings",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "this is Settings page"
+  }
+}

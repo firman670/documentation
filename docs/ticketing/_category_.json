@@ -1,0 +1,11 @@
+{
+  "customProps": {
+    "title": " "
+  },
+  "label": "Ticketing",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "this is ticketing page"
+  }
+}

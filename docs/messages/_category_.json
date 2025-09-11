@@ -1,0 +1,11 @@
+{
+  "customProps": {
+    "title": " "
+  },
+  "label": "Messages",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "this is messages page"
+  }
+}
