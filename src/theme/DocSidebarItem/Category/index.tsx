@@ -174,13 +174,15 @@ export default function DocSidebarItemCategory({
       >
         <Link
           className={clsx(
-            `menu__link !text-sm  !text-gray-500 dark:!text-gray-400 ${
-              level !== 1 ? "pl-3" : "pl-3"
-            }`,
+            "menu__link !text-sm",
+            level !== 1 ? "pl-3" : "pl-3",
             {
               "menu__link--sublist": collapsible,
               "menu__link--sublist-caret": !href && collapsible,
-              "menu__link--active": isActive,
+              // "!text-gray-500 dark:!text-gray-400": isActive,
+              // default gray kalau tidak aktif
+              "!text-gray-500 dark:!text-gray-400": !isCurrentPage,
+
               "!text-[#2a68ee] dark:!text-[#2a68ee] font-medium": isCurrentPage,
             }
           )}
