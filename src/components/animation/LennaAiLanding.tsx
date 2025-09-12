@@ -68,7 +68,7 @@ export default function LennaAiLanding() {
               left: `${Math.random() * 100}%`,
               background: isDark
                 ? "rgba(96, 165, 250, 0.5)"
-                : "rgba(59, 130, 246, 0.3)", // Lebih soft di light mode
+                : "rgba(59, 130, 246, 0.3)",
             }}
             animate={{
               y: [0, Math.random() * 60 - 30],
@@ -138,17 +138,15 @@ export default function LennaAiLanding() {
             className={`inline-flex items-center justify-center px-4 py-1.5 rounded-full mb-6 ${
               isDark
                 ? "bg-blue-500/10 border border-blue-500/20"
-                : "bg-blue-100/80 border border-blue-200" // Lebih terang di light mode
+                : "bg-blue-100/80 border border-blue-200"
             }`}
           >
             <span
               className={`h-2 w-2 rounded-full mr-2 ${
-                isDark ? "bg-blue-500" : "bg-blue-600" // Warna lebih gelap di light mode
+                isDark ? "bg-blue-500" : "bg-blue-600"
               } animate-pulse`}
             ></span>
-            <span className="text-sm font-medium">
-              AI-Powered Documentation
-            </span>
+            <span className="text-sm font-medium">Lenna Documentation</span>
           </motion.div>
 
           <motion.h1
@@ -208,7 +206,7 @@ export default function LennaAiLanding() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.7 }}
           >
-            <ButtonDocs />
+            <ButtonDocs darkMode={isDark} />
 
             {/* <motion.a
               href="#demo"

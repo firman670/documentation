@@ -98,9 +98,9 @@ const config: Config = {
   themeConfig: {
     image: "img/docusaurus-social-card.jpg",
     navbar: {
-      title: "Lenna Ai",
+      title: "Lenna.ai",
       logo: {
-        alt: "Lenna Ai Logo",
+        alt: "Lenna.ai Logo",
         src: "https://platform.lenna.ai/assets/logo-icon-84970a46.svg",
       },
       items: [
@@ -163,7 +163,7 @@ const config: Config = {
         },
       ],
       logo: {
-        alt: "Lenna Ai Logo",
+        alt: "Lenna.ai Logo",
         src: "https://platform.lenna.ai/assets/logo-icon-84970a46.svg",
         width: 90,
         height: 45,
