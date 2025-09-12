@@ -363,7 +363,11 @@ export default function LennaAiLanding() {
 
   return (
     <div
-      className={`pt-10 min-h-screen w-full relative overflow-hidden ${bgClass}`}
+      className={`pt-10 min-h-screen w-full relative overflow-hidden ${
+        isDark
+          ? "bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900 text-white"
+          : "bg-blue-400"
+      }`}
     >
       {/* Top Nav */}
       {/* <header className="absolute inset-x-0 top-0 z-10">
