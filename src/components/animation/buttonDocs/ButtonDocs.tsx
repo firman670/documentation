@@ -1,7 +1,11 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
-export default function ButtonDocs() {
+type ButtonDocsProps = {
+  darkMode: boolean;
+};
+
+export default function ButtonDocs({ darkMode }: ButtonDocsProps) {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -18,7 +22,9 @@ export default function ButtonDocs() {
   return (
     <motion.a
       href="/docs/category/getting-started"
-      className="relative px-8 py-4 rounded-xl font-medium dark:bg-gradient-to-r dark:from-blue-600 dark:to-purple-600 bg-purple-600 text-white overflow-hidden group"
+      className={`relative px-8 py-4 rounded-xl font-medium transition-colors ${
+        darkMode ? "bg-[#2a68ee]" : "bg-[#1B84FF]"
+      } text-white overflow-hidden group`}
       whileHover={{
         scale: 1.05,
         boxShadow: "0 10px 25px rgba(59, 130, 246, 0.4)",

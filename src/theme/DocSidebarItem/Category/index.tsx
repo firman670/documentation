@@ -174,7 +174,7 @@ export default function DocSidebarItemCategory({
       >
         <Link
           className={clsx(
-            "menu__link !text-sm",
+            "menu__link !text-sm ",
             level !== 1 ? "pl-3" : "pl-3",
             {
               "menu__link--sublist": collapsible,
@@ -183,7 +183,7 @@ export default function DocSidebarItemCategory({
               // default gray kalau tidak aktif
               "!text-gray-500 dark:!text-gray-400": !isCurrentPage,
 
-              "!text-[#2a68ee] dark:!text-[#2a68ee] font-medium": isCurrentPage,
+              "!text-[#2a68ee] dark:!text-[#1B84FF] font-medium": isCurrentPage,
             }
           )}
           onClick={

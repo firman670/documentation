@@ -196,7 +196,6 @@ export default function UploadPage() {
           onDragLeave={() => setDragging(false)}
           className={`uploadBox ${dragging ? "dragging" : ""}`}
         >
-          {/* IDLE */}
           {status === "idle" && (
             <motion.div
               className="uploadContent"
@@ -206,7 +205,10 @@ export default function UploadPage() {
               <UploadCloud size={48} className="uploadIcon" />
               <h2 className="title">Upload Your File</h2>
               <p className="subtitle">Drag & drop or browse from your device</p>
-              <label htmlFor="fileInput" className="browseButton">
+              <label
+                htmlFor="fileInput"
+                className="browseButton !bg-[#2A68EE] dark:!bg-[#1B84FF] transition-colors"
+              >
                 Browse File
               </label>
               <input
@@ -278,7 +280,6 @@ export default function UploadPage() {
             </motion.div>
           )}
 
-          {/* MODAL SELECT PATH */}
           {showPathPopup && (
             <div className="modalOverlay">
               <motion.div

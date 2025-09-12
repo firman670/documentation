@@ -49,7 +49,8 @@ function Feature({ title, Svg, description }: FeatureItem) {
         className={clsx(
           "rounded-2xl border p-6 shadow-lg transition-all duration-300 hover:shadow-xl",
           "dark:bg-slate-900/30 dark:border-white/10 dark:hover:bg-slate-900/50",
-          "bg-white/70 bg-opacity-70 border-gray-200/80 backdrop-blur-sm hover:bg-white/90"
+          "bg-white/70 bg-opacity-70 border-gray-200/80 backdrop-blur-sm hover:bg-white/90",
+          "min-h-[180px] flex flex-col items-center justify-center"
         )}
       >
         <div className="text-lg font-semibold mb-3 dark:text-white text-slate-800">
@@ -72,7 +73,7 @@ export default function HomepageFeatures(): ReactNode {
       )}
     >
       <div className=" mx-auto px-4">
-        <div className="row">
+        <div className="row lg:gap-0 md:gap-3 gap-3  align-center justify-center mx-auto">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

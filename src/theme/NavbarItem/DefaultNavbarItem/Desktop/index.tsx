@@ -14,7 +14,7 @@ export default function DefaultNavbarItemDesktop({
       className={clsx(
         isDropdownItem
           ? "dropdown__link hover:text-[#2A68EE] dark:hover:text-[#2A68EE]"
-          : "navbar__item navbar__link hover:text-[#2A68EE] dark:hover:text-[#2A68EE]",
+          : "navbar__item navbar__link hover:text-[#2A68EE] dark:hover:text-[#1B84FF]",
         className
       )}
       isDropdownLink={isDropdownItem}
