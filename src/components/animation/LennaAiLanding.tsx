@@ -49,7 +49,7 @@ export default function LennaAiLanding() {
 
   const bgClass = isDark
     ? "bg-gradient-to-b from-gray-900 via-indigo-900 to-gray-800 text-white"
-    : "bg-gradient-to-b from-gray-50 via-blue-50 to-gray-100 text-gray-900";
+    : "bg-gradient-to-b from-gray-100 via-slate-100 to-gray-50 text-gray-900";
 
   return (
     <div
@@ -68,7 +68,7 @@ export default function LennaAiLanding() {
               left: `${Math.random() * 100}%`,
               background: isDark
                 ? "rgba(96, 165, 250, 0.5)"
-                : "rgba(59, 130, 246, 0.3)",
+                : "rgba(59, 130, 246, 0.5)",
             }}
             animate={{
               y: [0, Math.random() * 60 - 30],
@@ -86,7 +86,7 @@ export default function LennaAiLanding() {
         ))}
       </div>
 
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 ">
         <svg width="100%" height="100%" className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <motion.line
@@ -95,7 +95,9 @@ export default function LennaAiLanding() {
               y1={`${Math.random() * 100}%`}
               x2={`${Math.random() * 100}%`}
               y2={`${Math.random() * 100}%`}
-              stroke={isDark ? "white" : "rgba(59, 130, 246, 0.2)"} // Lebih soft di light mode
+              stroke={
+                isDark ? "rgba(255,255,255,0.4)" : "rgba(59, 130, 246, 0.2)"
+              }
               strokeWidth="0.5"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -110,7 +112,7 @@ export default function LennaAiLanding() {
         className="relative h-[68vh] md:h-[78vh] w-full flex items-center justify-center overflow-hidden"
       >
         <motion.div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-30 "
           animate={{
             background: [
               "radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.4) 0%, transparent 50%)",
@@ -159,7 +161,7 @@ export default function LennaAiLanding() {
               Lenna
             </span>
             <motion.span
-              className={`${isDark ? "text-blue-500" : "text-blue-600"} ml-2`} // Warna lebih gelap di light mode
+              className={`${isDark ? "text-blue-500" : "text-blue-600"} ml-2`}
               animate={{ opacity: [1, 0.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
@@ -190,7 +192,7 @@ export default function LennaAiLanding() {
 
           <motion.p
             className={`text-lg mb-10 max-w-2xl mx-auto ${
-              isDark ? "opacity-80" : "opacity-90 text-gray-700" // Warna lebih gelap di light mode
+              isDark ? "opacity-80" : "opacity-90 text-gray-700"
             }`}
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
