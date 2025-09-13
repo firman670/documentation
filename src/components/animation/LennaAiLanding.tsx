@@ -57,30 +57,25 @@ export default function LennaAiLanding() {
       className={`pt-0 min-h-screen w-full relative overflow-hidden ${bgClass}`}
     >
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(40)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full"
+            className={`absolute w-1 h-1 rounded-full ${
+              isDark ? "bg-white" : "bg-blue-400"
+            }`}
             style={{
-              width: Math.random() * 6 + 2,
-              height: Math.random() * 6 + 2,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              background: isDark
-                ? "rgba(96, 165, 250, 0.5)"
-                : "rgba(59, 130, 246, 0.5)",
+              opacity: 0.8,
             }}
             animate={{
-              y: [0, Math.random() * 60 - 30],
-              x: [0, Math.random() * 60 - 30],
-              scale: [0, 1, 0],
-              opacity: [0, 1, 0],
+              opacity: [0.2, 1, 0.2],
+              scale: [0.8, 1.2, 0.8],
             }}
             transition={{
-              duration: Math.random() * 10 + 15,
+              duration: 3 + Math.random() * 4,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: Math.random() * 10,
             }}
           />
         ))}
