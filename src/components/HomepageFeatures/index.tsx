@@ -47,9 +47,9 @@ function Feature({ title, Svg, description }: FeatureItem) {
     <div className={clsx("col col--4")}>
       <div
         className={clsx(
-          "rounded-2xl border p-6 shadow-lg transition-all duration-300 hover:shadow-xl",
+          "rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-xl",
           "dark:bg-slate-900/30 dark:border-white/10 dark:hover:bg-slate-900/50",
-          "bg-white/70 bg-opacity-70 border-gray-200/80 backdrop-blur-sm hover:bg-white/90",
+          "bg-white/80 border border-gray-300 backdrop-blur-sm hover:bg-white/90",
           "min-h-[180px] flex flex-col items-center justify-center"
         )}
       >
