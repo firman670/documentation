@@ -1,5 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import HomepageFeatures from "../HomepageFeatures";
 import ButtonDocs from "./buttonDocs/ButtonDocs";
 
@@ -9,6 +16,12 @@ export default function LennaAiLanding() {
   const containerRef = useRef(null);
   const heroRef = useRef(null);
   const isInView = useInView(heroRef, { once: true, amount: 0.3 });
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const smoothX = useSpring(mouseX, { stiffness: 10, damping: 30 });
+  const smoothY = useSpring(mouseY, { stiffness: 10, damping: 30 });
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -31,10 +44,10 @@ export default function LennaAiLanding() {
     });
 
     const handleMouseMove = (e) => {
-      setMousePosition({
-        x: e.clientX / window.innerWidth - 0.5,
-        y: e.clientY / window.innerHeight - 0.5,
-      });
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      mouseX.set(x);
+      mouseY.set(y);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -57,28 +70,40 @@ export default function LennaAiLanding() {
       className={`pt-0 min-h-screen w-full relative overflow-hidden ${bgClass}`}
     >
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(40)].map((_, i) => (
-          <motion.div
-            key={i}
-            className={`absolute w-1 h-1 rounded-full ${
-              isDark ? "bg-white" : "bg-blue-400"
-            }`}
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: 0.8,
-            }}
-            animate={{
-              opacity: [0.2, 1, 0.2],
-              scale: [0.8, 1.2, 0.8],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        {[...Array(40)].map((_, i) => {
+          const driftX = (Math.random() - 0.5) * 40;
+          const driftY = (Math.random() - 0.5) * 40;
+
+          const x = useTransform(smoothX, (v) => v * driftX);
+          const y = useTransform(smoothY, (v) => v * driftY);
+
+          return (
+            <motion.div
+              key={i}
+              className={`absolute w-1 h-1 rounded-full ${
+                isDark ? "bg-white" : "bg-blue-400"
+              }`}
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                opacity: 0.8,
+                x,
+                y,
+              }}
+              animate={{
+                opacity: [0.1, 1, 0.1],
+                scale: [0.7, 1.3, 0.7],
+              }}
+              transition={{
+                duration: 8 + Math.random() * 6,
+                repeat: Infinity,
+                repeatType: "mirror",
+                ease: "easeInOut",
+                delay: Math.random() * 5,
+              }}
+            />
+          );
+        })}
       </div>
 
       <div className="absolute inset-0 opacity-10 ">
