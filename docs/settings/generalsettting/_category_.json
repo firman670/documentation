@@ -1,0 +1,8 @@
+{
+  "label": "General Setting",
+  "position": 0,
+  "link": {
+    "type": "generated-index",
+    "description": "this is General Setting page"
+  }
+}
