@@ -1,0 +1,11 @@
+{
+  "customProps": {
+    "title": "GEN AI"
+  },
+  "label": "How gen ai works",
+  "position": 8888,
+  "link": {
+    "type": "generated-index",
+    "description": "this is GEN AI page"
+  }
+}
