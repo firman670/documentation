@@ -1,0 +1,43 @@
+---
+id: Example Usage
+title: Example Usage
+sidebar_position: 3
+---
+
+# 🚀 Full Example Usage
+
+Di bawah ini contoh lengkap implementasi `LennaChat` pada widget `Scaffold`.  
+Contoh ini menampilkan konfigurasi warna, teks, avatar, hingga event `onBack()`.
+
+```dart title="Full Usage Example"
+return Scaffold(
+  body: LennaChat(
+    appId: "Your AppId",
+    apiKey:
+        'Your-apiKey',
+    projectId: 'Your projectId',
+    user: Your Response login UserData,
+    onBack: () {
+      "Your Function Back or navigation"
+    },
+
+    // UI Identity
+    title: "Ai Name",
+    subTitle: "Virtual Assistant Ai Name",
+    avatarProfile: "assets/avatar.png", // Import Your Path Image
+
+    // Colors & UI Theme
+    backgroundColor: Color(0xFFF9FBFF),   // Chat screen background
+    headerColor: Color(0xFF1565C0),        // Header AppBar color
+    bubbleLeftColor: Color(0xFFE8F2FF),    // Bot bubble color
+    bubbleRightColor: Color(0xFF0066CC),   // User bubble color
+    textFieldColor: Color(0xFFFFFFFF),     // Input container color
+    sendButtonColor: Color(0xFF1565C0),    // Send icon color
+    textInputColor: Color(0xFF1F1F1F),     // Color text input
+    backColor: Color(0xFFF9FBFF),          // Back arrow color
+
+    // Socket Integration
+    socketId: 'Your Number AppId',
+  ),
+);
+```
