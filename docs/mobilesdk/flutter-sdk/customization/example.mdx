@@ -11,43 +11,7 @@ Dokumentasi ini menjelaskan cara menggunakan library/package Flutter **LennaChat
 
 ---
 
-## 1. Generate JWT di Client Side
-
-Pertama, buat fungsi untuk menghasilkan **JWT** di sisi client. Token ini akan digunakan untuk proses login ke API Lenna.
-
-```dart
-String generateJWT(String email, String username, String name) {
-  const secretKey = '5Y5rtOsLh9rOC60t6pa9GVcQk7aIXzrI';
-
-  final header = {'alg': 'HS256', 'typ': 'JWT'};
-  final payload = {
-    'sub': email,
-    'username': username,
-    'nickname': name,
-    'exp': (DateTime.now().millisecondsSinceEpoch ~/ 1000) + 30,
-  };
-
-  String base64UrlEncode(Map<String, dynamic> json) =>
-      base64Url.encode(utf8.encode(jsonEncode(json))).replaceAll('=', '');
-
-  final encodedHeader = base64UrlEncode(header);
-  final encodedPayload = base64UrlEncode(payload);
-
-  final hmac = Hmac(sha256, utf8.encode(secretKey));
-  final signature = hmac
-      .convert(utf8.encode('$encodedHeader.$encodedPayload'))
-      .bytes;
-  final encodedSignature = base64Url.encode(signature).replaceAll('=', '');
-
-  return '$encodedHeader.$encodedPayload.$encodedSignature';
-}
-```
-
----
-
-## 2. Login Menggunakan API Lenna
-
-Setelah JWT berhasil dibuat, gunakan token tersebut untuk melakukan login melalui API berikut:
+## 1. Login Menggunakan API Lenna
 
 **Endpoint**
 
@@ -61,7 +25,6 @@ https://v3.lenna.ai/app/public/api/{app_id}/mobile/entry-login
 {
   "Accept": "application/json",
   "Content-Type": "application/json",
-  "Authorization": "Bearer <tokenJWT>",
   "X-LENNA-MOBILE": "<secret_key>"
 }
 ```
@@ -82,7 +45,7 @@ Response dari API ini akan menghasilkan data user yang nantinya digunakan pada w
 
 ---
 
-## 3. Contoh Implementasi LennaChat
+## 2. Contoh Implementasi LennaChat
 
 Berikut adalah contoh implementasi lengkap **LennaChat** di dalam widget `Scaffold`. Contoh ini mencakup konfigurasi identitas UI, warna, avatar, hingga event `onBack()`.
 
