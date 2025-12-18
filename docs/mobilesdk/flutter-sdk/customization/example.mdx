@@ -1,43 +1,129 @@
 ---
+
 id: Example Usage
 title: Example Usage
 sidebar_position: 3
----
+-------------------
 
 # 🚀 Full Example Usage
 
-Di bawah ini contoh lengkap implementasi `LennaChat` pada widget `Scaffold`.  
-Contoh ini menampilkan konfigurasi warna, teks, avatar, hingga event `onBack()`.
+Dokumentasi ini menjelaskan cara menggunakan library/package Flutter **LennaChat**, mulai dari data apa saja yang perlu dikirim, proses autentikasi, hingga contoh implementasi lengkap di dalam aplikasi.
+
+---
+
+## 1. Generate JWT di Client Side
+
+Pertama, buat fungsi untuk menghasilkan **JWT** di sisi client. Token ini akan digunakan untuk proses login ke API Lenna.
+
+```dart
+String generateJWT(String email, String username, String name) {
+  const secretKey = '5Y5rtOsLh9rOC60t6pa9GVcQk7aIXzrI';
+
+  final header = {'alg': 'HS256', 'typ': 'JWT'};
+  final payload = {
+    'sub': email,
+    'username': username,
+    'nickname': name,
+    'exp': (DateTime.now().millisecondsSinceEpoch ~/ 1000) + 30,
+  };
+
+  String base64UrlEncode(Map<String, dynamic> json) =>
+      base64Url.encode(utf8.encode(jsonEncode(json))).replaceAll('=', '');
+
+  final encodedHeader = base64UrlEncode(header);
+  final encodedPayload = base64UrlEncode(payload);
+
+  final hmac = Hmac(sha256, utf8.encode(secretKey));
+  final signature = hmac
+      .convert(utf8.encode('$encodedHeader.$encodedPayload'))
+      .bytes;
+  final encodedSignature = base64Url.encode(signature).replaceAll('=', '');
+
+  return '$encodedHeader.$encodedPayload.$encodedSignature';
+}
+```
+
+---
+
+## 2. Login Menggunakan API Lenna
+
+Setelah JWT berhasil dibuat, gunakan token tersebut untuk melakukan login melalui API berikut:
+
+**Endpoint**
+
+```
+https://v3.lenna.ai/app/public/api/{app_id}/mobile/entry-login
+```
+
+### Headers
+
+```json
+{
+  "Accept": "application/json",
+  "Content-Type": "application/json",
+  "Authorization": "Bearer <tokenJWT>",
+  "X-LENNA-MOBILE": "<secret_key>"
+}
+```
+
+### Payload
+
+```json
+{
+  "email": "email",
+  "name": "nickname",
+  "nickname": "name",
+  "fcm_token": "fcmToken",
+  "integration_id": ""
+}
+```
+
+Response dari API ini akan menghasilkan data user yang nantinya digunakan pada widget **LennaChat**.
+
+---
+
+## 3. Contoh Implementasi LennaChat
+
+Berikut adalah contoh implementasi lengkap **LennaChat** di dalam widget `Scaffold`. Contoh ini mencakup konfigurasi identitas UI, warna, avatar, hingga event `onBack()`.
 
 ```dart title="Full Usage Example"
 return Scaffold(
   body: LennaChat(
     appId: "Your AppId",
-    apiKey:
-        'Your-apiKey',
+    apiKey: 'Your-apiKey',
     projectId: 'Your projectId',
-    user: Your Response login UserData,
+    user: YourResponseLoginUserData,
     onBack: () {
-      "Your Function Back or navigation"
+      // Fungsi untuk navigasi kembali
     },
 
     // UI Identity
-    title: "Ai Name",
-    subTitle: "Virtual Assistant Ai Name",
-    avatarProfile: "assets/avatar.png", // Import Your Path Image
+    title: "AI Name",
+    subTitle: "Virtual Assistant AI Name",
+    avatarProfile: "assets/avatar.png", // Path asset avatar
 
     // Colors & UI Theme
-    backgroundColor: Color(0xFFF9FBFF),   // Chat screen background
-    headerColor: Color(0xFF1565C0),        // Header AppBar color
-    bubbleLeftColor: Color(0xFFE8F2FF),    // Bot bubble color
-    bubbleRightColor: Color(0xFF0066CC),   // User bubble color
-    textFieldColor: Color(0xFFFFFFFF),     // Input container color
-    sendButtonColor: Color(0xFF1565C0),    // Send icon color
-    textInputColor: Color(0xFF1F1F1F),     // Color text input
-    backColor: Color(0xFFF9FBFF),          // Back arrow color
+    backgroundColor: Color(0xFFF9FBFF),   // Background layar chat
+    headerColor: Color(0xFF1565C0),        // Warna AppBar
+    bubbleLeftColor: Color(0xFFE8F2FF),    // Warna bubble bot
+    bubbleRightColor: Color(0xFF0066CC),   // Warna bubble user
+    textFieldColor: Color(0xFFFFFFFF),     // Warna container input
+    sendButtonColor: Color(0xFF1565C0),    // Warna icon kirim
+    textInputColor: Color(0xFF1F1F1F),     // Warna teks input
+    backColor: Color(0xFFF9FBFF),          // Warna icon back
+    loadingColors: [                       // Paduan warna color three dots ketika loading
+          Colors.purple,
+          Colors.purpleAccent,
+          Colors.deepPurple,
+          Colors.deepPurpleAccent,
+        ],
+    borderTextInputColor: const Color(0xFFE0E0E0),    // Warna border TextInputColor
 
     // Socket Integration
     socketId: 'Your Number AppId',
+
   ),
 );
 ```
+
+Dengan konfigurasi di atas, **LennaChat** siap digunakan dan dapat langsung diintegrasikan ke dalam aplikasi Flutter Anda.
